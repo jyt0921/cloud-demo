@@ -1,0 +1,47 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test1?useSSL=false
+    username: root
+    password: jiang123456
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: orderservice #order服务名称
+  cloud:
+    nacos:
+      server-addr: localhost:8848 #nacos服务地址
+      discovery:
+        cluster-name: HZ  #集群名称
+mybatis:
+  type-aliases-package: cn.itcast.user.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+#eureka:
+#  client:
+#    service-url: #eureka的地址信息
+#      defaultZone: http://127.0.0.1:10086/eureka
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则 (这个规则优先会寻找与自己同集群的服务,同集群中采用随机方式，如果遇到没有本地的，则采用跨域访问，并发出警告)
+ribbon:
+  eager-load:
+    enabled: true #开启饥饿加载
+    clients: #指定饥饿加载的服务名称
+      -userservice
+      -orderservice
+#Feign用来改变传统http访问的格式
+feign:
+  client:
+    config:
+      default: # default全局的配置
+        loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数

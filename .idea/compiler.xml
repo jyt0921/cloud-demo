@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fegin-api" />
+        <module name="user-service" />
+        <module name="order-service" />
+        <module name="eureka-server" />
+        <module name="getwey" />
+        <module name="demo" />
+        <module name="gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-demo" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="fegin-api" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="getway" target="1.8" />
+      <module name="getwey" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="untitled" target="1.8" />
+      <module name="user-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="fegin-api" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="getway" options="-parameters" />
+      <module name="getwey" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="untitled" options="-parameters" />
+      <module name="user-service" options="-parameters" />
+    </option>
+  </component>
+</project>
